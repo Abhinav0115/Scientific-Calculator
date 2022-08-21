@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="AdvC_style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script type="text/javascript" src="AdvC_script.js"></script>
+</head>
+
+
+<body>
+    <h1 class="heading">Scientific Calculator</h1>
+    <center>
+        <div class="calcFrame">
+            <form action="" name="Calculator">
+                <input class="display" type="text" name="display" id="" onkeypress="return event.charCode >= 40
+                && event.charCode <= 57 || event.charCode == 8">
+            </form>
+            <table>
+                <tr>
+                    <td><button class="btn" onclick="logT()">Log</button></td>
+                    <!-- Log -->
+                    <td><button class="btn" onclick="logE()">ln</button>
+                    </td>
+                    <!-- ln -->
+                    <td><button class="btn" onclick="sinAngle()">Sin</button></td>
+                    <!-- Sin -->
+                    <td><button class="btn" onclick="cosAngle()">Cos</button>
+                    </td>
+                    <!-- Cos -->
+                    <td><button class="btn" onclick="tanAngle()">Tan</button></td>
+                    <!-- Tan -->
+                    <td><input type="radio" name="DegRad" class="DNR" id="valDeg" value="Degree" checked
+                            onclick="Calculator.display.value=''"><label for="valDeg">DEG</label></td>
+                    <!-- Degree -->
+                    <td><input type="radio" name="DegRad" class="DNR" id="valRad" value="Radian"
+                            onclick="Calculator.display.value=''"><label for="valRad">RAD</label></td>
+                    <!-- Radian -->
+
+
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="Calculator.display.value+='('"><span
+                                class="btnSize">&#10098;</span></button></td>
+                    <!-- ( -->
+                    <td><button class="btn" onclick="Calculator.display.value+=')'"><span
+                                class="btnSize">&#10099;</span></button></td>
+                    <!-- ) -->
+                    <td><button class="btn" onclick="sinInvAngle()">Sin<span class="btnSize">&#8315;</span><span
+                                class="btnSize">&#185;</span></button></td>
+                    <!-- Sin inverse -->
+                    <td><button class="btn" onclick="cosInvAngle()">Cos<span class="btnSize">&#8315;</span><span
+                                class="btnSize">&#185;</span></button></td>
+                    <!-- cos inverse -->
+                    <td><button class="btn" onclick="tanInvAngle()">Tan<span class="btnSize">&#8315;</span><span
+                                class="btnSize">&#185;</span></button></td>
+                    <!-- Tan inverse -->
+                    <td><button class="btn" onclick="Calculator.display.value+='%'"><span
+                                class="btnSize">&#37;</span></button></td>
+                    <!-- modulo -->
+                    <td><button class="btn" onclick="Calculator.display.value+=Math.PI.toFixed(6)"><span
+                                class="btnSize">&#8508;</span></button>
+                    </td>
+                    <!-- pi -->
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="cbrt()"><span class="btnSize">&#8731;</span>X</button></td>
+                    <!-- cube Root(X) -->
+                    <td><button class="btn" onclick="sqrt()"><span class="btnSize">&#8730;</span>X</button></td>
+                    <!-- sqrt(X) -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='7'"><span
+                                class="btnSize">&#55;</span></button></td>
+                    <!-- 7 -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='8'"><span
+                                class="btnSize">&#56;</span></button></td>
+                    <!-- 8 -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='9'"><span
+                                class="btnSize">&#57;</span></button></td>
+                    <!-- 9 -->
+                    <td><button class="btn del btnSize" onclick="Calculator.display.value=''">AC</button></td>
+                    <!-- AC -->
+                    <td><button class=" btn del" onclick="backspace()"><span class="material-symbols-outlined">
+                                backspace
+                            </span></button></td> <!-- Backspace (delete last) -->
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="powerTen()">10<span class="btnSize">&#8319;</span></button>
+                    </td>
+                    <!-- 10^n -->
+                    <td><button class="btn" onclick="fact()">X<span class="btnSize">&#33;</span></button></td>
+                    <!-- X! -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='4'"><span
+                                class="btnSize">&#52;</span></button></td>
+                    <!-- 4 -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='5'"><span
+                                class="btnSize">&#53;</span></button></td>
+                    <!-- 5 -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='6'"><span
+                                class="btnSize">&#54;</span></button></td>
+                    <!-- 6 -->
+                    <td><button class="btn" onclick="Calculator.display.value+='*'"><span
+                                class="btnSize">&#215;</span></button></td>
+                    <!-- multiply -->
+                    <td><button class="btn" onclick="Calculator.display.value+='/'"><span
+                                class="btnSize">&#247;</span></button></td>
+                    <!-- divide -->
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="posSign()"><span class="btnSize">&#8739;</span>X<span
+                                class="btnSize">&#8739;</span></button></td>
+                    <!-- |X|  -->
+                    <td><button class="btn" onclick="invOf()">X<span class="btnSize">&#8315;</span><span
+                                class="btnSize">&#185;</span></button></td>
+                    <!-- 1/x -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='1'"><span
+                                class="btnSize">&#49;</span></button></td>
+                    <!-- 1 -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='2'"><span
+                                class="btnSize">&#50;</span></button></td>
+                    <!-- 2 -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='3'"><span
+                                class="btnSize">&#51;</span></button></td>
+                    <!-- 3 -->
+                    <td><button class="btn" onclick="Calculator.display.value+='+'"><span
+                                class="btnSize">&#43;</span></button></td>
+                    <!-- plus -->
+                    <td><button class="btn" onclick="Calculator.display.value+='-'"><span
+                                class="btnSize">&#8722;</span></button></td>
+                    <!-- substract -->
+
+                </tr>
+                <tr>
+                    <td><button class="btn" onclick="exp()">e<span class="btnSize">&#8319;</span> </button>
+                    </td>
+                    <!-- e -->
+                    <td><button class="btn" onclick="square()">X<span class="btnSize">&#178;</span></button></td>
+                    <!-- square -->
+                    <td><button class="btn" onclick="changeSign()"><span class="btnSize">&#177;</span></button>
+                    </td>
+                    <!-- Answer -->
+                    <td><button class="btn numpad" onclick="Calculator.display.value+='0'"><span
+                                class="btnSize">&#48;</span></button>
+                    </td>
+                    <!-- 0 -->
+                    <td><button class="btn" onclick="Calculator.display.value+='.'"><span
+                                class="btnSize dot">&#8228;</span></button>
+                    </td>
+                    <!-- dot -->
+                    <td><button class="btn" onclick="eValue()">e</button></td>
+                    <!-- X^Y -->
+                    <td><button class="btn enter btnSize" onclick="equal()"><span class="btnSize">&#61;</span></button>
+                    </td> <!-- Enter -->
+                </tr>
+            </table>
+    </center>
+    </div>
+
+
+</body>
+
+</html>
